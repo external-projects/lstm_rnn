@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="animated fadeIn">
 <head>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 	<title>Online-Story-Generator</title>
 	<link href="https://fonts.googleapis.com/css?family=Euphoria+Script|Poppins|Amatic+SC|Encode+Sans+Condensed" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -12,98 +13,55 @@
 	<link href="page.css" rel="stylesheet">
 	<link href="animate.css" rel="stylesheet">
 	<link href="bootstrap-social.css" rel="stylesheet">
-	<script type="text/javascript">
-		function add1() {
-			var rawFile = new XMLHttpRequest();
-		    rawFile.open("GET", "output1.txt", false);
-		    rawFile.onreadystatechange = function ()
-		    {
-		        if(rawFile.status === 200 || rawFile.status == 0)
-		            {
-		                var allText = rawFile.responseText;
-		           		var TheTextBox = document.getElementById("name1");
-    					TheTextBox.value = allText;
-		            }
-		    }
-		    rawFile.send(null);
-		}
-
-		function add2() {
-			var rawFile = new XMLHttpRequest();
-		    rawFile.open("GET", "output2.txt", false);
-		    rawFile.onreadystatechange = function ()
-		    {
-		        if(rawFile.readyState === 4)
-		        {
-		            if(rawFile.status === 200 || rawFile.status == 0)
-		            {
-		                var allText = rawFile.responseText;
-		           		var TheTextBox = document.getElementById("name2");
-    					TheTextBox.value = allText;
-		            }
-		        }
-		    }
-		    rawFile.send(null);
-		}
-
-		function add3() {
-			var rawFile = new XMLHttpRequest();
-		    rawFile.open("GET", "output3.txt", false);
-		    rawFile.onreadystatechange = function ()
-		    {
-		        if(rawFile.readyState === 4)
-		        {
-		            if(rawFile.status === 200 || rawFile.status == 0)
-		            {
-		                var allText = rawFile.responseText;
-		           		var TheTextBox = document.getElementById("name3");
-    					TheTextBox.value = allText;
-		            }
-		        }
-		    }
-		    rawFile.send(null);
-		}
-	</script>
 </head>
-<body onpageshow="add1();add2();add3();">
+<body>
 	<div class="main">
 		<form class="ml-form" autocomplete="off" action="store.php" method="post">		
 			<div class="row">
 				<div class="col-sm-8">
 				<input name="name" class="form-control form-control-lg" type="text" placeholder="Seed Text">
 				</div>			
-				<input class="col-sm-1 btn btn-primary" type="submit" value="Generate">
+				<input class="col-sm-1 btn btn-primary" type="submit" value="Send">
 			</div>
 		</form>
 
-		<form class="ml-form" autocomplete="off" action="read.php" method="post">
 			<div class="row">
 				<div class="col-sm-4">
-				<input name="name1" id="name1" autocomplete="off" class="form-control form-control-lg" type="text" placeholder="predictions">
+				<object class="form-control form-control-lg" data="jeffery.txt"></object>
 				</div>			
 				<input class="col-sm-1 btn btn-primary" type="submit" value="Append">
 			</div>
-		</form>
+		
 
 		<div class="row">
 				<div class="col-sm-4">
-				<input name="name2" id="name2" autocomplete="off" class="form-control form-control-lg" type="text" placeholder="predictions">
+				<object class="two form-control form-control-lg" data="rowlings.txt"></object>
 				</div>			
 				<input class="col-sm-1 btn btn-primary" type="submit" value="Append">
 		</div>
+		
 
 
 		<div class="row">
 				<div class="col-sm-4">
-				<input name="name3" id="name3" autocomplete="off" class="form-control form-control-lg" type="text" placeholder="predictions">
+				<object class="three form-control form-control-lg" data="narayan.txt"></object>
 				</div>			
-				<input class="col-sm-1 btn btn-primary" type="submit" value="Append">
+				<input class="col-sm-1 btn btn-primary" type="submit"  value="Append">
 		</div>
+
 
 		<div class=" col-sm-9 area">
 			<textarea name="problem" class="form-control form-control-lg" type="text" placeholder="Story" rows="5"></textarea>
 		</div>
+		
 
+		<form class="ml-form" autocomplete="off" action="read.php" method="post">
+				<div class="row">
+					<div class="col-sm-8">
+					<input class="col-sm-2 btn btn-primary" type="submit" value="Generate">
+					</div>	
+				</div>
+		</form>
 	</div>
 </body>
 </html>

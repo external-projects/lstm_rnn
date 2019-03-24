@@ -86,8 +86,12 @@ $service = new Google_Service_Drive($client);
 $file = $service->files->get($fileid,array('alt' => 'media'));
 $data = $file->getBody()->getContents();
 // print($data);
-file_put_contents('output1.txt', $data);
+// file_put_contents('output1.txt', $data);
 // $output = shell_exec('php test.php');
+
+
+$filehandle = fopen("jeffery.txt",'w');
+fwrite($filehandle, $data);
 
 
 // $fileMetadata = new Google_Service_Drive_DriveFile(array('name' => 'input1.txt'));
