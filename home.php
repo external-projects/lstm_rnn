@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html class="animated fadeIn">
+<!-- <?php
+$page = $_SERVER['PHP_SELF'];
+$sec = "10";
+?> -->
 <head>
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<!-- <meta http-equiv="refresh" content="<?php echo $sec?>;URL='<?php echo $page?>'"> -->
 	<title>Online-Story-Generator</title>
 	<link href="https://fonts.googleapis.com/css?family=Euphoria+Script|Poppins|Amatic+SC|Encode+Sans+Condensed" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -13,8 +18,32 @@
 	<link href="page.css" rel="stylesheet">
 	<link href="animate.css" rel="stylesheet">
 	<link href="bootstrap-social.css" rel="stylesheet">
+
+	<!-- <script type="text/javascript">
+		function loaddata(argument) {
+			fs.readFile('story.txt', 'utf-8', (err, data) => { 
+			    if (err) throw err; 
+			  
+			    // Converting Raw Buffer to text 
+			    // data using tostring function. 
+			    document.getElementById("problem").value = data; 
+			})
+		}
+	</script> -->
+
 </head>
-<body>
+<body onload="document.getElementById('problem').value = '<?php echo file_get_contents('story.txt');?>'">
+	<?php
+		$x = 600;
+		$current_time = time();
+		$file_name = 'story.txt';
+		$file_creation_time = filemtime($file_name);
+		$difference = $current_time - $file_creation_time;
+		if ($difference >= $x) {
+			file_put_contents($file_name, "");
+		}
+	?>
+
 	<div class="main">
 		<form class="ml-form" autocomplete="off" action="store.php" method="post">		
 			<div class="row">
@@ -25,40 +54,43 @@
 			</div>
 		</form>
 
+
+		<form class="ml-form" autocomplete="off" action="jeffery_append.php" method="post">
 			<div class="row">
 				<div class="col-sm-4">
-				<object class="form-control form-control-lg" data="jeffery.txt"></object>
-				</div>			
+				<object  class="form-control form-control-lg" data="jeffery.txt"></object>
+				</div>		
 				<input class="col-sm-1 btn btn-primary" type="submit" value="Append">
 			</div>
+		</form>
 		
-
-		<div class="row">
+		<form class="ml-form" autocomplete="off" action="rowlings_append.php" method="post">
+			<div class="row">
 				<div class="col-sm-4">
 				<object class="two form-control form-control-lg" data="rowlings.txt"></object>
 				</div>			
 				<input class="col-sm-1 btn btn-primary" type="submit" value="Append">
-		</div>
-		
+			</div>
+		</form>
 
-
-		<div class="row">
+		<form class="ml-form" autocomplete="off" action="narayan_append.php" method="post">
+			<div class="row">
 				<div class="col-sm-4">
 				<object class="three form-control form-control-lg" data="narayan.txt"></object>
 				</div>			
-				<input class="col-sm-1 btn btn-primary" type="submit"  value="Append">
-		</div>
-
+				<input class="col-sm-1 btn btn-primary" type="submit" value="Append">
+			</div>
+		</form>
 
 		<div class=" col-sm-9 area">
-			<textarea name="problem" class="form-control form-control-lg" type="text" placeholder="Story" rows="5"></textarea>
+			<textarea name="problem" id="problem" class="form-control form-control-lg" type="text" placeholder="Story" rows="5"></textarea>
 		</div>
 		
 
 		<form class="ml-form" autocomplete="off" action="read.php" method="post">
 				<div class="row">
 					<div class="col-sm-8">
-					<input class="col-sm-2 btn btn-primary" type="submit" value="Generate">
+						<input class="col-sm-2 btn btn-primary" type="submit" value="Generate">
 					</div>	
 				</div>
 		</form>

@@ -89,9 +89,21 @@ $data = $file->getBody()->getContents();
 // file_put_contents('output1.txt', $data);
 // $output = shell_exec('php test.php');
 
+$appenddata = "";
 
+$tempdata = $data;
+$data_arr = explode(" ", $tempdata);
+$story_contents = file_get_contents("story.txt", "r");
+$story_arr = explode(" ", $story_contents);
+
+$i = sizeof($story_arr);
+for(;$i<sizeof($data_arr);$i++){
+    $appenddata .= $data_arr[$i]." ";
+}
+
+// previous code
 $filehandle = fopen("jeffery.txt",'w');
-fwrite($filehandle, $data);
+fwrite($filehandle, $appenddata);
 
 
 // $fileMetadata = new Google_Service_Drive_DriveFile(array('name' => 'input1.txt'));
