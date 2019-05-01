@@ -11,8 +11,8 @@ html, body {
 }
 
 .main {
-  padding-top: 10%;
-  padding-left: 10%;
+  padding-top: 2%;
+  padding-left: 5%;
 }
 
 .row {
@@ -24,33 +24,14 @@ html, body {
 }
 
 
-@media screen {
-        body {
-          font-style: bold;
-          font-family: 'Poppins', sans-serif;
-        }
-
-        .name_heading {
-            font-family: 'Euphoria Script', cursive;
-        }
-
-        .connect, .ask, .get {
-          font-size: 1.6em !important;
-          font-family: 'Encode Sans Condensed', sans-serif;
-        }
-
-        .para {
-          font-size: 15px;
-          opacity: 0.5;
-        }
-}
 
 
-
-
-[class*="col-sm-5"] {
+/*[class*="col-sm-5"] {
     padding: 10%;
+}*/
+
+[class*="col-sm-1"] {
+  margin-right: 2px;
+  margin-top: 2px;
 }
-
-
 

@@ -82,7 +82,7 @@ $service = new Google_Service_Drive($client);
 // }
 
 
-$fileid = "14YcSsO-_hlTCIBYgWhoSsCjpq6iiqvdZ";
+$fileid = "10YnNgPmYUxdCPwfCoKuLnsTNTXvk5bFx";
 
 // $client = getClient();
 // $service = new Google_Service_Drive($client);
@@ -90,10 +90,10 @@ $fileid = "14YcSsO-_hlTCIBYgWhoSsCjpq6iiqvdZ";
 // print($file->getBody()->getContents()."\n");
 
 
-$fileMetadata = new Google_Service_Drive_DriveFile(array('name' => 'input1.txt'));
+$fileMetadata = new Google_Service_Drive_DriveFile(array('name' => 'predictions.txt'));
 $emptyFile = new Google_Service_Drive_DriveFile();
-$content = file_get_contents('input1.txt');
-//print($content);
+$content = file_get_contents('predictions.txt');
+print($content);
 $file = $service->files->update($fileid, $emptyFile,array(
     'data' => $content,
     'mimeType' => 'text/plain',

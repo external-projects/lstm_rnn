@@ -19,18 +19,6 @@ $sec = "10";
 	<link href="animate.css" rel="stylesheet">
 	<link href="bootstrap-social.css" rel="stylesheet">
 
-	<!-- <script type="text/javascript">
-		function loaddata(argument) {
-			fs.readFile('story.txt', 'utf-8', (err, data) => { 
-			    if (err) throw err; 
-			  
-			    // Converting Raw Buffer to text 
-			    // data using tostring function. 
-			    document.getElementById("problem").value = data; 
-			})
-		}
-	</script> -->
-
 </head>
 <body onload="document.getElementById('problem').value = '<?php echo file_get_contents('story.txt');?>'">
 	<?php
@@ -45,7 +33,7 @@ $sec = "10";
 	?>
 
 	<div class="main">
-		<form class="ml-form" autocomplete="off" action="store.php" method="post">		
+		<form class="ml-form" autocomplete="off" action="store.php" method="post">	
 			<div class="row">
 				<div class="col-sm-8">
 				<input name="name" class="form-control form-control-lg" type="text" placeholder="Seed Text">
@@ -53,7 +41,6 @@ $sec = "10";
 				<input class="col-sm-1 btn btn-primary" type="submit" value="Send">
 			</div>
 		</form>
-
 
 		<form class="ml-form" autocomplete="off" action="jeffery_append.php" method="post">
 			<div class="row">
@@ -88,11 +75,19 @@ $sec = "10";
 		
 
 		<form class="ml-form" autocomplete="off" action="read.php" method="post">
-				<div class="row">
-					<div class="col-sm-8">
-						<input class="col-sm-2 btn btn-primary" type="submit" value="Generate">
-					</div>	
+			<div class="row">
+				<div class="col-sm-4">
+					<input class="btn btn-primary" type="submit" value="Generate">
 				</div>
+				<div class="col-sm-4">
+					<div class="container">
+						<h4><span class="badge badge-secondary">Next number of predictions for Story</span></h4>
+					</div>
+				</div>
+				<div class="col-sm-1">
+					<input id="predictions" name="predictions" class="form-control" type="text" value="3">
+				</div>
+			</div>
 		</form>
 	</div>
 </body>

@@ -10,8 +10,9 @@ fwrite($filehandle, $data);
 fclose($filehandle);
 
 file_put_contents('input1.txt', $data);
+
+$pred_output = shell_exec('php predict.php');
 $output = shell_exec('php test.php');
 header('Location: home.php');
-
 
 ?>
